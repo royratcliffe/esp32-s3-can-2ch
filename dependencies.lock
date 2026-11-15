@@ -1,0 +1,20 @@
+dependencies:
+  espressif/canopennode:
+    component_hash: ed6a6eed035e321fe1c847027867e631f1e5039b35d3f70581ba8b6d22232d61
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.5.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.1.0
+  idf:
+    source:
+      type: idf
+    version: 6.1.0
+direct_dependencies:
+- espressif/canopennode
+manifest_hash: 420afc36c2a5683adb3bef2c8cdff56e1a3658398f9a829bdfd70b36994ae230
+target: esp32s3
+version: 3.0.0
