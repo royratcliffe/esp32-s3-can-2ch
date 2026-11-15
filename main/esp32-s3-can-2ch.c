@@ -32,6 +32,8 @@ void app_main(void)
             }
             x += step;
         }
+        /* How often to update the joystick report is determined by the
+         * delay below. Adjust as needed. */
         vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
