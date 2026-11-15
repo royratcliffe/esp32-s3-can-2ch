@@ -17,3 +17,5 @@ CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
 
 # Keep the existing legacy TWAI implementation when building with ESP-IDF 6.x.
 CONFIG_TWAI_SUPPRESS_DEPRECATE_WARN=y
+
+CONFIG_TINYUSB_HID_COUNT=1
