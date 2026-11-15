@@ -12,10 +12,15 @@ CONFIG_SPIRAM_RODATA=y
 CONFIG_EXAMPLE_TX_GPIO_NUM=15
 CONFIG_EXAMPLE_RX_GPIO_NUM=16
 
-# Logs and the Wi-Fi configuration command line use the native USB port.
+# Early boot logs and ROM-bootloader flashing use USB-Serial-JTAG; once
+# TinyUSB takes over the USB PHY the runtime console moves to CDC-ACM.
 CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
 
 # Keep the existing legacy TWAI implementation when building with ESP-IDF 6.x.
 CONFIG_TWAI_SUPPRESS_DEPRECATE_WARN=y
 
 CONFIG_TINYUSB_HID_COUNT=1
+
+# CDC-ACM serial console over TinyUSB, alongside the HID joystick.
+CONFIG_TINYUSB_CDC_ENABLED=y
+CONFIG_TINYUSB_CDC_COUNT=1

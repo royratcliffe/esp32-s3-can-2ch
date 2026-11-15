@@ -39,13 +39,22 @@ static const char *joystick_string_descriptor[] = {
     "CAN Joystick",
     NULL,
     "Joystick",
+    "CDC Console",
 };
 
-#define JOYSTICK_CONFIG_DESC_LEN (TUD_CONFIG_DESC_LEN + TUD_HID_DESC_LEN)
+enum {
+    ITF_NUM_CDC = 0,
+    ITF_NUM_CDC_DATA,
+    ITF_NUM_HID,
+    ITF_NUM_TOTAL,
+};
+
+#define JOYSTICK_CONFIG_DESC_LEN (TUD_CONFIG_DESC_LEN + TUD_CDC_DESC_LEN + TUD_HID_DESC_LEN)
 
 static const uint8_t joystick_configuration_descriptor[] = {
-    TUD_CONFIG_DESCRIPTOR(1, 1, 0, JOYSTICK_CONFIG_DESC_LEN, 0, 100),
-    TUD_HID_DESCRIPTOR(0, 4, false, sizeof(hid_report_descriptor), 0x81, 16, 10),
+    TUD_CONFIG_DESCRIPTOR(1, ITF_NUM_TOTAL, 0, JOYSTICK_CONFIG_DESC_LEN, 0, 100),
+    TUD_CDC_DESCRIPTOR(ITF_NUM_CDC, 5, 0x81, 8, 0x02, 0x82, 64),
+    TUD_HID_DESCRIPTOR(ITF_NUM_HID, 4, false, sizeof(hid_report_descriptor), 0x83, 16, 10),
 };
 
 uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance)
