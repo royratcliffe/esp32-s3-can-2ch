@@ -4,7 +4,9 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 
+#include "waveshare_twai_port.h"
 #include "ble_joystick.h"
+#include "canopen_node.h"
 
 void app_main(void)
 {
@@ -16,7 +18,9 @@ void app_main(void)
     }
     ESP_ERROR_CHECK(err);
 
+    ESP_ERROR_CHECK(waveshare_main_wifi_sta_init());
     ESP_ERROR_CHECK(ble_joystick_init());
+    ESP_ERROR_CHECK(canopen_node_start());
 
     /* Demo input: sweep the X axis back and forth and toggle button 1 at
      * the extremes. Replace with real input, e.g. values received over
