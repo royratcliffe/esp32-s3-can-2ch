@@ -1,10 +1,12 @@
 #include <stdlib.h>
+#include <string.h>
 
 #include "CANopen.h"
 #include "301/CO_Emergency.h"
 #include "301/CO_NMT_Heartbeat.h"
 #include "OD.h"
 #include "esp_log.h"
+#include "esp_system.h"
 #include "esp_timer.h"
 #include "esp_twai.h"
 #include "esp_twai_onchip.h"
@@ -18,6 +20,51 @@
 #define CANOPEN_SDO_CLIENT_TIMEOUT_MS 500
 
 static const char *TAG = "canopen";
+
+static ODR_t write_mock_input(OD_stream_t *stream, const void *buf, OD_size_t count,
+                              OD_size_t *count_written)
+{
+    if (stream == NULL || stream->object == NULL || stream->dataOrig == NULL
+        || stream->dataLength > sizeof(int16_t)) {
+        return ODR_DEV_INCOMPAT;
+    }
+
+    uint8_t previous[sizeof(int16_t)];
+    memcpy(previous, stream->dataOrig, stream->dataLength);
+    ODR_t result = OD_writeOriginal(stream, buf, count, count_written);
+#ifdef CONFIG_CO_PDO
+    if ((result == ODR_OK || result == ODR_PARTIAL)
+        && memcmp(previous, stream->dataOrig, stream->dataLength) != 0) {
+        CO_t *co = stream->object;
+        const uint16_t input_index = stream->index == 0x2F01 ? 0x6000 : 0x6401;
+        for (size_t i = 0; i < OD_CNT_TPDO; i++) {
+            CO_TPDO_t *tpdo = &co->TPDO[i];
+            const CO_PDO_common_t *pdo = &tpdo->PDO_common;
+            for (uint8_t j = 0; j < pdo->mappedObjectsCount; j++) {
+                if (pdo->OD_IO[j].stream.index == input_index
+                    && pdo->OD_IO[j].stream.subIndex == stream->subIndex) {
+                    CO_TPDOsendRequest(tpdo);
+                    break;
+                }
+            }
+        }
+    }
+#endif
+    return result;
+}
+
+static void init_mock_inputs(CO_t *co)
+{
+    static OD_extension_t digital_extension;
+    static OD_extension_t analog_extension;
+    digital_extension = (OD_extension_t){ .object = co, .read = OD_readOriginal, .write = write_mock_input };
+    analog_extension = (OD_extension_t){ .object = co, .read = OD_readOriginal, .write = write_mock_input };
+    if (OD_extension_init(OD_ENTRY_H2F01, &digital_extension) != ODR_OK
+        || OD_extension_init(OD_ENTRY_H2F02, &analog_extension) != ODR_OK) {
+        ESP_LOGE(TAG, "Failed to initialise mock input controls");
+        abort();
+    }
+}
 
 static void check_canopen_result(CO_ReturnError_t result, const char *operation)
 {
@@ -67,6 +114,7 @@ void app_main(void)
              CONFIG_CANOPEN_NODE_ID, CONFIG_CANOPEN_BITRATE_KBPS,
              CONFIG_CANOPEN_TX_GPIO, CONFIG_CANOPEN_RX_GPIO);
 
+    OD_RAM.digital_inputs[0] = 0xee;
     CO_NMT_reset_cmd_t reset = CO_RESET_COMM;
     while (reset != CO_RESET_APP) {
         uint32_t error_info = 0;
@@ -82,6 +130,7 @@ void app_main(void)
         check_canopen_result(CO_CANopenInitPDO(co, co->em, OD, CONFIG_CANOPEN_NODE_ID, &error_info),
                              "PDO initialization");
 #endif
+        init_mock_inputs(co);
         if (error_info != 0) {
             ESP_LOGW(TAG, "CANopen initialization reported warnings: 0x%08x", (unsigned)error_info);
         }
@@ -123,6 +172,6 @@ void app_main(void)
         }
     }
 
-    CO_delete(co);
-    ESP_ERROR_CHECK(twai_node_delete(twai_node));
+    ESP_LOGI(TAG, "NMT reset node: restarting");
+    esp_restart();
 }

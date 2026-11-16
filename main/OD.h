@@ -30,7 +30,7 @@ typedef struct {
     uint32_t cob_id;
     uint8_t transmission_type;
     uint16_t inhibit_time;
-    uint16_t compatibility_entry;
+    uint8_t compatibility_entry;
     uint16_t event_timer;
 } OD_tpdo_communication_t;
 
@@ -108,5 +108,7 @@ extern OD_t *OD;
 #define OD_ENTRY_H1A02 OD_ENTRY(26)
 #define OD_ENTRY_H1A03 OD_ENTRY(27)
 #define OD_ENTRY_H2F00 OD_ENTRY(28)
+#define OD_ENTRY_H2F01 OD_ENTRY(29)
+#define OD_ENTRY_H2F02 OD_ENTRY(30)
 
 #endif

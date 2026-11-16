@@ -84,6 +84,8 @@ typedef struct {
     OD_obj_record_t tpdo_communication[4][6];
     OD_obj_record_t tpdo_mapping[4][5];
     OD_obj_var_t mock_em_fault;
+    OD_obj_record_t mock_digital_inputs[3];
+    OD_obj_record_t mock_analog_inputs[9];
     OD_obj_record_t digital_inputs[3];
     OD_obj_record_t digital_outputs[3];
     OD_obj_record_t analog_inputs[9];
@@ -213,7 +215,7 @@ static CO_PROGMEM OD_objects_t OD_objects = {
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[0].cob_id, 1, ODA_SDO_RW | ODA_MB, sizeof(uint32_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[0].transmission_type, 2, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[0].inhibit_time, 3, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
-            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[0].compatibility_entry, 4, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
+            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[0].compatibility_entry, 4, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[0].event_timer, 5, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
         },
         {
@@ -221,7 +223,7 @@ static CO_PROGMEM OD_objects_t OD_objects = {
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[1].cob_id, 1, ODA_SDO_RW | ODA_MB, sizeof(uint32_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[1].transmission_type, 2, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[1].inhibit_time, 3, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
-            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[1].compatibility_entry, 4, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
+            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[1].compatibility_entry, 4, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[1].event_timer, 5, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
         },
         {
@@ -229,7 +231,7 @@ static CO_PROGMEM OD_objects_t OD_objects = {
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[2].cob_id, 1, ODA_SDO_RW | ODA_MB, sizeof(uint32_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[2].transmission_type, 2, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[2].inhibit_time, 3, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
-            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[2].compatibility_entry, 4, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
+            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[2].compatibility_entry, 4, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[2].event_timer, 5, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
         },
         {
@@ -237,7 +239,7 @@ static CO_PROGMEM OD_objects_t OD_objects = {
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[3].cob_id, 1, ODA_SDO_RW | ODA_MB, sizeof(uint32_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[3].transmission_type, 2, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[3].inhibit_time, 3, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
-            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[3].compatibility_entry, 4, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
+            RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[3].compatibility_entry, 4, ODA_SDO_RW, sizeof(uint8_t)),
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_communication[3].event_timer, 5, ODA_SDO_RW | ODA_MB, sizeof(uint16_t)),
         },
     },
@@ -264,6 +266,22 @@ static CO_PROGMEM OD_objects_t OD_objects = {
         {
             RECORD_ENTRY(&OD_PERSIST_COMM.tpdo_mapping[3].count, 0, ODA_SDO_RW, sizeof(uint8_t)),
         },
+    },
+    .mock_digital_inputs = {
+        RECORD_ENTRY(&OD_RAM.digital_input_count, 0, ODA_SDO_R, sizeof(uint8_t)),
+        RECORD_ENTRY(&OD_RAM.digital_inputs[0], 1, ODA_SDO_RW, sizeof(uint8_t)),
+        RECORD_ENTRY(&OD_RAM.digital_inputs[1], 2, ODA_SDO_RW, sizeof(uint8_t)),
+    },
+    .mock_analog_inputs = {
+        RECORD_ENTRY(&OD_RAM.analog_input_count, 0, ODA_SDO_R, sizeof(uint8_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[0], 1, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[1], 2, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[2], 3, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[3], 4, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[4], 5, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[5], 6, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[6], 7, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
+        RECORD_ENTRY(&OD_RAM.analog_inputs[7], 8, ODA_SDO_RW | ODA_MB, sizeof(int16_t)),
     },
     .digital_inputs = {
         RECORD_ENTRY(&OD_RAM.digital_input_count, 0, ODA_SDO_R, sizeof(uint8_t)),
@@ -329,6 +347,8 @@ static OD_ATTR_OD OD_entry_t OD_list[] = {
     { 0x1A02, 5, ODT_REC, &OD_objects.tpdo_mapping[2], NULL },
     { 0x1A03, 1, ODT_REC, &OD_objects.tpdo_mapping[3], NULL },
     { 0x2F00, 1, ODT_VAR, &OD_objects.mock_em_fault, NULL },
+    { 0x2F01, 3, ODT_REC, &OD_objects.mock_digital_inputs, NULL },
+    { 0x2F02, 9, ODT_REC, &OD_objects.mock_analog_inputs, NULL },
     { 0x6000, 3, ODT_REC, &OD_objects.digital_inputs, NULL },
     { 0x6200, 3, ODT_REC, &OD_objects.digital_outputs, NULL },
     { 0x6401, 9, ODT_REC, &OD_objects.analog_inputs, NULL },
