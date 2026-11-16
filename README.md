@@ -8,7 +8,11 @@ The Object Dictionary implements device identity, an SDO server and
 asynchronous PDO communication/mapping records, plus the CO4017A0 digital and
 analogue input and output objects described in `main/CO4017A0.eds`. Digital
 and analogue inputs start at zero; output values retain SDO/RPDO writes in RAM.
-The remaining optional EDS objects are not implemented. CANopenNode handles
+It also exposes the EDS SDO parameters `0x1005` (SYNC COB-ID, default `0x80`),
+`0x100C` (Guard Time) and `0x100D` (Life Time Factor), initially zero for the
+latter two. These are stored in RAM; changing them does not enable SYNC or
+node-guarding protocol processing. The remaining optional EDS objects are not
+implemented. CANopenNode handles
 standard NMT commands and produces heartbeat messages; the default heartbeat
 period is 1000 ms (set to 0 to disable it). NMT state changes are logged.
 
