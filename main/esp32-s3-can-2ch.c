@@ -14,6 +14,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
+#ifdef CONFIG_CANOPEN_RX_LOG
+#include "can_rx_log.h"
+#endif
+
 #define CANOPEN_TASK_PERIOD_MS 10
 #define CANOPEN_FIRST_HEARTBEAT_MS 1000
 #define CANOPEN_SDO_SERVER_TIMEOUT_MS 1000
@@ -132,6 +136,9 @@ void app_main(void)
     };
 
     ESP_ERROR_CHECK(twai_new_node_onchip(&twai_config, &twai_node));
+#ifdef CONFIG_CANOPEN_RX_LOG
+    can_rx_log_init(twai_node);
+#endif
 
     CO_t *co = CO_new(NULL, NULL);
     if (co == NULL) {
@@ -180,6 +187,9 @@ void app_main(void)
 #endif
             CO_process_RPDO(co, false, elapsed_us, NULL);
             CO_process_TPDO(co, false, elapsed_us, NULL);
+#endif
+#ifdef CONFIG_CANOPEN_RX_LOG
+            can_rx_log_process();
 #endif
             const uint8_t mock_em_requested = OD_RAM.mock_em_fault != 0;
             if (mock_em_requested != mock_em_reported) {

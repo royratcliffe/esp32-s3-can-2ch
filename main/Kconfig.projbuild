@@ -23,6 +23,13 @@ config CANOPEN_PDO_DEBUG
         Log pending RPDOs and scheduled TPDOs from the CANopen task.
         Logging may affect timing and can produce substantial output.
 
+config CANOPEN_RX_LOG
+    bool "Log received CAN frames"
+    default n
+    help
+        Queue received CAN frames for logging from the CANopen task.
+        Frames can be dropped from the log when the queue is full.
+
 config CANOPEN_TX_GPIO
     int "TWAI TX GPIO"
     range 0 48

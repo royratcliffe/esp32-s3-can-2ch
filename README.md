@@ -29,6 +29,11 @@ CANopen mock** in `idf.py menuconfig`. The log reports RPDOs pending processing
 and TPDOs scheduled for transmission while operational; it does not confirm
 successful CAN transmission. Logging can affect timing.
 
+To log received CAN frames, enable **Log received CAN frames** in the same
+menu. Logs include the identifier, DLC, frame type and available data bytes.
+Capture uses a bounded queue; a warning reports dropped log records when it
+fills. Logging can affect timing.
+
 The Emergency producer records the most recent eight EMCY events in object
 `0x1003`. For testing, write `1` to SDO object `0x2F00:00` to send a simulated
 generic-error EMCY, and write `0` to clear it. This simulator-only object is
