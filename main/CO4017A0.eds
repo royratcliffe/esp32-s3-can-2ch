@@ -1,0 +1,2199 @@
+[FileInfo]
+CreatedBy=frenzel + berg electronic GmbH & Co.KG
+ModifiedBy=frenzel + berg electronic GmbH & Co.KG
+Description=EDS file for CO4017A0
+CreationTime=11:29AM
+CreationDate=10-09-2017
+ModificationTime=11:29AM
+ModificationDate=10-09-2017
+FileName=CO4017A0.eds
+FileVersion=1
+FileRevision=0
+EDSVersion=4
+
+[DeviceInfo]
+VendorName=frenzel + berg electronic GmbH & Co.KG
+VendorNumber=0x58
+ProductName=CO4017A0
+ProductNumber=0x01401701
+OrderCode=CO4017A-FL CO4017A-BD
+BaudRate_10=1
+BaudRate_20=1
+BaudRate_50=1
+BaudRate_125=1
+BaudRate_250=1
+BaudRate_500=1
+BaudRate_800=1
+BaudRate_1000=1
+SimpleBootUpMaster=0
+SimpleBootUpSlave=1
+Granularity=8
+DynamicChannelsSupported=0
+CompactPDO=0
+GroupMessaging=0
+NrOfRXPDO=4
+NrOfTXPDO=4
+LSS_Supported=0
+
+[DummyUsage]
+Dummy0001=0
+Dummy0002=0
+Dummy0003=0
+Dummy0004=0
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[Comments]
+Lines=0
+
+[MandatoryObjects]
+SupportedObjects=3
+1=0x1000
+2=0x1001
+3=0x1018
+
+[1000]
+ParameterName=DeviceType
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0xF0191
+PDOMapping=0
+
+[1001]
+ParameterName=ErrorRegister
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=0
+PDOMapping=1
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=5
+
+[1018sub0]
+ParameterName=nrOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+LowLimit=1
+HighLimit=4
+
+[1018sub1]
+ParameterName=Vendor ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x58
+PDOMapping=0
+
+[1018sub2]
+ParameterName=Product Code
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x01401701
+PDOMapping=0
+
+[1018sub3]
+ParameterName=Revision Nr
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+
+[1018sub4]
+ParameterName=Serial Nr
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+
+[OptionalObjects]
+SupportedObjects=52
+1=0x1002
+2=0x1005
+3=0x1008
+4=0x1009
+5=0x100A
+6=0x100C
+7=0x100D
+8=0x1014
+9=0x1015
+10=0x1017
+11=0x1029
+12=0x1400
+13=0x1401
+14=0x1402
+15=0x1403
+16=0x1600
+17=0x1601
+18=0x1602
+19=0x1603
+20=0x1800
+21=0x1801
+22=0x1802
+23=0x1803
+24=0x1A00
+25=0x1A01
+26=0x1A02
+27=0x1A03
+28=0x6000
+29=0x6002
+30=0x6005
+31=0x6006
+32=0x6007
+33=0x6008
+34=0x6100
+35=0x6120
+36=0x6200
+37=0x6202
+38=0x6206
+39=0x6207
+40=0x6300
+41=0x6320
+42=0x6401
+43=0x6411
+44=0x6421
+45=0x6423
+46=0x6424
+47=0x6425
+48=0x6426
+49=0x6427
+50=0x6428
+51=0x6443
+52=0x6444
+
+[1002]
+ParameterName=ManufacturerStatusRegister
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0
+PDOMapping=1
+
+[1005]
+ParameterName=COB-ID SYNC
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x80
+PDOMapping=0
+LowLimit=0x01
+HighLimit=0x7FF
+
+[1008]
+ParameterName=Manufacturer Device Name
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+DefaultValue="CO4017A"
+PDOMapping=0
+
+[1009]
+ParameterName=Manufacturer Hardware Version
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+PDOMapping=0
+
+[100a]
+ParameterName=Manufacturer Software Version
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+PDOMapping=0
+
+[100c]
+ParameterName=GuardTime
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0
+PDOMapping=0
+
+[100d]
+ParameterName=LifeTimeFactor
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0x0
+PDOMapping=0
+
+[1014]
+ParameterName=COB-ID EMCY
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NodeID+0x80
+PDOMapping=0
+
+[1015]
+ParameterName=Inhibit Time EMCY
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1017]
+ParameterName=Producer Heartbeat Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1029]
+ParameterName=Error behaviour
+ObjectType=0x8
+SubNumber=3
+
+[1029sub0]
+ParameterName=Nr of Error Classes
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1029sub1]
+ParameterName=Communication Error
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1029sub2]
+ParameterName=Specific Error Class
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1400]
+ParameterName=Receive PDO Communication Parameter 0
+ObjectType=0x9
+SubNumber=3
+
+[1400sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1400sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x200
+PDOMapping=0
+
+[1400sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1401]
+ParameterName=Receive PDO Communication Parameter 1
+ObjectType=0x9
+SubNumber=3
+
+[1401sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1401sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x300
+PDOMapping=0
+
+[1401sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1402]
+ParameterName=Receive PDO Communication Parameter 2
+ObjectType=0x9
+SubNumber=3
+
+[1402sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1402sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x400
+PDOMapping=0
+
+[1402sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1403]
+ParameterName=Receive PDO Communication Parameter 3
+ObjectType=0x9
+SubNumber=3
+
+[1403sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1403sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x80000500
+PDOMapping=0
+
+[1403sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1600]
+ParameterName=Receive PDO Mapping Parameter 0
+ObjectType=0x9
+SubNumber=3
+
+[1600sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1600sub1]
+ParameterName=PDO Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x62000108
+PDOMapping=0
+
+[1600sub2]
+ParameterName=PDO Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x62000208
+PDOMapping=0
+
+[1601]
+ParameterName=Receive PDO Mapping Parameter 1
+ObjectType=0x9
+SubNumber=5
+
+[1601sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=4
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1601sub1]
+ParameterName=PDO Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110110
+PDOMapping=0
+
+[1601sub2]
+ParameterName=PDO Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110210
+PDOMapping=0
+
+[1601sub3]
+ParameterName=PDO Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110310
+PDOMapping=0
+
+[1601sub4]
+ParameterName=PDO Mapping Entry 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110410
+PDOMapping=0
+
+[1602]
+ParameterName=Receive PDO Mapping Parameter 2
+ObjectType=0x9
+SubNumber=5
+
+[1602sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=4
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1602sub1]
+ParameterName=PDO Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110510
+PDOMapping=0
+
+[1602sub2]
+ParameterName=PDO Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110610
+PDOMapping=0
+
+[1602sub3]
+ParameterName=PDO Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110710
+PDOMapping=0
+
+[1602sub4]
+ParameterName=PDO Mapping Entry 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64110810
+PDOMapping=0
+
+[1603]
+ParameterName=Receive PDO Mapping Parameter 3
+ObjectType=0x9
+SubNumber=1
+
+[1603sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1800]
+ParameterName=Transmit PDO Communication Parameter 0
+ObjectType=0x9
+SubNumber=6
+
+[1800sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1800sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x180
+PDOMapping=0
+
+[1800sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1800sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1800sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1800sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1801]
+ParameterName=Transmit PDO Communication Parameter 1
+ObjectType=0x9
+SubNumber=6
+
+[1801sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1801sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x280
+PDOMapping=0
+
+[1801sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1801sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1801sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1801sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1802]
+ParameterName=Transmit PDO Communication Parameter 2
+ObjectType=0x9
+SubNumber=6
+
+[1802sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1802sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x380
+PDOMapping=0
+
+[1802sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1802sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1802sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1802sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1803]
+ParameterName=Transmit PDO Communication Parameter 3
+ObjectType=0x9
+SubNumber=6
+
+[1803sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1803sub1]
+ParameterName=COB ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=$NODEID+0x80000480
+PDOMapping=0
+
+[1803sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=255
+PDOMapping=0
+
+[1803sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0x0000
+PDOMapping=0
+
+[1803sub4]
+ParameterName=Compatibility Entry
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+PDOMapping=0
+
+[1803sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1A00]
+ParameterName=Transmit PDO Mapping Parameter 0
+ObjectType=0x9
+SubNumber=3
+
+[1A00sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=2
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A00sub1]
+ParameterName=PDO Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60000108
+PDOMapping=0
+
+[1A00sub2]
+ParameterName=PDO Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60000208
+PDOMapping=0
+
+[1A01]
+ParameterName=Transmit PDO Mapping Parameter 1
+ObjectType=0x9
+SubNumber=5
+
+[1A01sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=4
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A01sub1]
+ParameterName=PDO Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010110
+PDOMapping=0
+
+[1A01sub2]
+ParameterName=PDO Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010210
+PDOMapping=0
+
+[1A01sub3]
+ParameterName=PDO Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010310
+PDOMapping=0
+
+[1A01sub4]
+ParameterName=PDO Mapping Entry 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010410
+PDOMapping=0
+
+[1A02]
+ParameterName=Transmit PDO Mapping Parameter 2
+ObjectType=0x9
+SubNumber=5
+
+[1A02sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=4
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[1A02sub1]
+ParameterName=PDO Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010510
+PDOMapping=0
+
+[1A02sub2]
+ParameterName=PDO Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010610
+PDOMapping=0
+
+[1A02sub3]
+ParameterName=PDO Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010710
+PDOMapping=0
+
+[1A02sub4]
+ParameterName=PDO Mapping Entry 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x64010810
+PDOMapping=0
+
+[1A03]
+ParameterName=Transmit PDO Mapping Parameter 3
+ObjectType=0x9
+SubNumber=1
+
+[1A03sub0]
+ParameterName=Number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+LowLimit=0
+HighLimit=8
+
+[6000]
+ParameterName=Read Input 8 bit
+ObjectType=0x8
+SubNumber=3
+
+[6000sub0]
+ParameterName=nrOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6000sub1]
+ParameterName=Read Input Byte_01
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[6000sub2]
+ParameterName=Read Input Byte_02
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[6002]
+ParameterName=Polarity Input 8 bit
+ObjectType=0x8
+SubNumber=3
+
+[6002sub0]
+ParameterName=nrOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6002sub1]
+ParameterName=Polarity Input 8 bit Byte_01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6002sub2]
+ParameterName=Polarity Input 8 bit Byte_02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6005]
+ParameterName=Global Interrupt Enable Digital In
+ObjectType=0x7
+DataType=0x0001
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+
+[6006]
+ParameterName=Irq Mask Any Change Byte
+ObjectType=0x8
+SubNumber=3
+
+[6006sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6006sub1]
+ParameterName=Irq Mask Any Change Byte_01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0xFF
+PDOMapping=0
+
+[6006sub2]
+ParameterName=Irq Mask Any Change Byte_02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0xFF
+PDOMapping=0
+
+[6007]
+ParameterName=Irq Mask Rising Edge Byte
+ObjectType=0x8
+SubNumber=3
+
+[6007sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6007sub1]
+ParameterName=Irq Mask Rising Edge Byte_01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6007sub2]
+ParameterName=Irq Mask Rising Edge Byte_02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6008]
+ParameterName=Irq Mask Falling Edge Byte
+ObjectType=0x8
+SubNumber=3
+
+[6008sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6008sub1]
+ParameterName=Irq Mask Falling Edge Byte_01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6008sub2]
+ParameterName=Irq Mask Falling Edge Byte_02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6100]
+ParameterName=Read Input Word
+ObjectType=0x8
+SubNumber=2
+
+[6100sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+
+[6100sub1]
+ParameterName=Read Input Word_01
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=1
+
+[6120]
+ParameterName=Read Input Long
+ObjectType=0x8
+SubNumber=2
+
+[6120sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+
+[6120sub1]
+ParameterName=Read Input Long_01
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[6200]
+ParameterName=Write Output Byte
+ObjectType=0x8
+SubNumber=3
+
+[6200sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6200sub1]
+ParameterName=Write Output Byte 01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6200sub2]
+ParameterName=Write Output Byte 02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6202]
+ParameterName=Change Polarity Output Byte
+ObjectType=0x8
+SubNumber=3
+
+[6202sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6202sub1]
+ParameterName=Change Polarity Output Byte 01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6202sub2]
+ParameterName=Change Polarity Output Byte 02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6206]
+ParameterName=Error Mode Output Byte
+ObjectType=0x8
+SubNumber=3
+
+[6206sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6206sub1]
+ParameterName=Error Mode Output Byte 01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0xFF
+PDOMapping=0
+
+[6206sub2]
+ParameterName=Error Mode Output Byte 02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0xFF
+PDOMapping=0
+
+[6207]
+ParameterName=Error State Output Byte
+ObjectType=0x8
+SubNumber=3
+
+[6207sub0]
+ParameterName=NrOfElements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[6207sub1]
+ParameterName=Error State Output Byte 01
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6207sub2]
+ParameterName=Error State Output Byte 02
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6300]
+ParameterName=Write Output Word
+ObjectType=0x8
+SubNumber=2
+
+[6300sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+
+[6300sub1]
+ParameterName=Write Output Word 01
+ObjectType=0x7
+DataType=0x0006
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6320]
+ParameterName=Write Output Long
+ObjectType=0x8
+SubNumber=2
+
+[6320sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+
+[6320sub1]
+ParameterName=Write Output Long 01
+ObjectType=0x7
+DataType=0x0007
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6401]
+ParameterName=Read Analog Input 16 Bit
+ObjectType=0x8
+SubNumber=9
+
+[6401sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6401sub1]
+ParameterName=Read Analog Input 16 Bit 1
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub2]
+ParameterName=Read Analog Input 16 Bit 2
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub3]
+ParameterName=Read Analog Input 16 Bit 3
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub4]
+ParameterName=Read Analog Input 16 Bit 4
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub5]
+ParameterName=Read Analog Input 16 Bit 5
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub6]
+ParameterName=Read Analog Input 16 Bit 6
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub7]
+ParameterName=Read Analog Input 16 Bit 7
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6401sub8]
+ParameterName=Read Analog Input 16 Bit 8
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[6411]
+ParameterName=Write Analogue Output 16 Bit
+ObjectType=0x8
+SubNumber=9
+
+[6411sub0]
+ParameterName=Number of Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6411sub1]
+ParameterName=AnalogueOutput16_1
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub2]
+ParameterName=AnalogueOutput16_2
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub3]
+ParameterName=AnalogueOutput16_3
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub4]
+ParameterName=AnalogueOutput16_4
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub5]
+ParameterName=AnalogueOutput16_5
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub6]
+ParameterName=AnalogueOutput16_6
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub7]
+ParameterName=AnalogueOutput16_7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6411sub8]
+ParameterName=AnalogueOutput16_8
+ObjectType=0x7
+DataType=0x0003
+AccessType=rww
+DefaultValue=0
+PDOMapping=1
+
+[6421]
+ParameterName=Analog Input Interrupt Trigger Selection
+ObjectType=0x8
+SubNumber=9
+
+[6421sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6421sub1]
+ParameterName=Analog Input Interrupt Trigger Selection 1
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub2]
+ParameterName=Analog Input Interrupt Trigger Selection 2
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub3]
+ParameterName=Analog Input Interrupt Trigger Selection 3
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub4]
+ParameterName=Analog Input Interrupt Trigger Selection 4
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub5]
+ParameterName=Analog Input Interrupt Trigger Selection 5
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub6]
+ParameterName=Analog Input Interrupt Trigger Selection 6
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub7]
+ParameterName=Analog Input Interrupt Trigger Selection 7
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6421sub8]
+ParameterName=Analog Input Interrupt Trigger Selection 8
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=7
+PDOMapping=0
+LowLimit=0
+HighLimit=31
+
+[6423]
+ParameterName=Analog Input Global Interrupt Enable
+ObjectType=0x7
+DataType=0x0001
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424]
+ParameterName=Analog Input Upper Limit Integer
+ObjectType=0x8
+SubNumber=9
+
+[6424sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6424sub1]
+ParameterName=Analog Input Upper Limit Integer 1
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub2]
+ParameterName=Analog Input Upper Limit Integer 2
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub3]
+ParameterName=Analog Input Upper Limit Integer 3
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub4]
+ParameterName=Analog Input Upper Limit Integer 4
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub5]
+ParameterName=Analog Input Upper Limit Integer 5
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub6]
+ParameterName=Analog Input Upper Limit Integer 6
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub7]
+ParameterName=Analog Input Upper Limit Integer 7
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6424sub8]
+ParameterName=Analog Input Upper Limit Integer 8
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425]
+ParameterName=Analog Input Lower Limit Integer
+ObjectType=0x8
+SubNumber=9
+
+[6425sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6425sub1]
+ParameterName=Analog Input Lower Limit Integer 1
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub2]
+ParameterName=Analog Input Lower Limit Integer 2
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub3]
+ParameterName=Analog Input Lower Limit Integer 3
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub4]
+ParameterName=Analog Input Lower Limit Integer 4
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub5]
+ParameterName=Analog Input Lower Limit Integer 5
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub6]
+ParameterName=Analog Input Lower Limit Integer 6
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub7]
+ParameterName=Analog Input Lower Limit Integer 7
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6425sub8]
+ParameterName=Analog Input Lower Limit Integer 8
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426]
+ParameterName=Analog Input Interrupt Delta Unsigned
+ObjectType=0x8
+SubNumber=9
+
+[6426sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6426sub1]
+ParameterName=Analog Input Interrupt Delta Unsigned 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub2]
+ParameterName=Analog Input Interrupt Delta Unsigned 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub3]
+ParameterName=Analog Input Interrupt Delta Unsigned 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub4]
+ParameterName=Analog Input Interrupt Delta Unsigned 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub5]
+ParameterName=Analog Input Interrupt Delta Unsigned 5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub6]
+ParameterName=Analog Input Interrupt Delta Unsigned 6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub7]
+ParameterName=Analog Input Interrupt Delta Unsigned 7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6426sub8]
+ParameterName=Analog Input Interrupt Delta Unsigned 8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427]
+ParameterName=Analog Input Negative Delta Unsigned
+ObjectType=0x8
+SubNumber=9
+
+[6427sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6427sub1]
+ParameterName=Analog Input Negative Delta Unsigned 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub2]
+ParameterName=Analog Input Negative Delta Unsigned 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub3]
+ParameterName=Analog Input Negative Delta Unsigned 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub4]
+ParameterName=Analog Input Negative Delta Unsigned 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub5]
+ParameterName=Analog Input Negative Delta Unsigned 5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub6]
+ParameterName=Analog Input Negative Delta Unsigned 6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub7]
+ParameterName=Analog Input Negative Delta Unsigned 7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6427sub8]
+ParameterName=Analog Input Negative Delta Unsigned 8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428]
+ParameterName=Analog Input Positive Delta Unsigned
+ObjectType=0x8
+SubNumber=9
+
+[6428sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6428sub1]
+ParameterName=Analog Input Positive Delta Unsigned 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub2]
+ParameterName=Analog Input Positive Delta Unsigned 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub3]
+ParameterName=Analog Input Positive Delta Unsigned 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub4]
+ParameterName=Analog Input Positive Delta Unsigned 4
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub5]
+ParameterName=Analog Input Positive Delta Unsigned 5
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub6]
+ParameterName=Analog Input Positive Delta Unsigned 6
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub7]
+ParameterName=Analog Input Positive Delta Unsigned 7
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6428sub8]
+ParameterName=Analog Input Positive Delta Unsigned 8
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[6443]
+ParameterName=Analogue Output Error Mode
+ObjectType=0x8
+SubNumber=9
+
+[6443sub0]
+ParameterName=Number of Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6443sub1]
+ParameterName=ErrorMode 1
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub2]
+ParameterName=ErrorMode 2
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub3]
+ParameterName=ErrorMode 3
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub4]
+ParameterName=ErrorMode 4
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub5]
+ParameterName=ErrorMode 5
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub6]
+ParameterName=ErrorMode 6
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub7]
+ParameterName=ErrorMode 7
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6443sub8]
+ParameterName=ErrorMode 8
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+
+[6444]
+ParameterName=Analogue Output Error Value Integer
+ObjectType=0x8
+SubNumber=9
+
+[6444sub0]
+ParameterName=Number of Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=8
+PDOMapping=0
+
+[6444sub1]
+ParameterName=ErrorValueInt 1
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub2]
+ParameterName=ErrorValueInt 2
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub3]
+ParameterName=ErrorValueInt 3
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub4]
+ParameterName=ErrorValueInt 4
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub5]
+ParameterName=ErrorValueInt 5
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub6]
+ParameterName=ErrorValueInt 6
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub7]
+ParameterName=ErrorValueInt 7
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[6444sub8]
+ParameterName=ErrorValueInt 8
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+DefaultValue=0
+
+[ManufacturerObjects]
+SupportedObjects=13
+1=0x2000
+2=0x2101
+3=0x2102
+4=0x2103
+5=0x2105
+6=0x2110
+7=0x2180
+8=0x5002
+9=0x5100
+10=0x5101
+11=0x5200
+12=0x5400
+13=0x5402
+
+[2000]
+ParameterName=Manufacturer Name
+ObjectType=0x7
+DataType=0x0009
+AccessType=ro
+PDOMapping=0
+
+[2101]
+ParameterName=System Configuration
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+
+[2102]
+ParameterName=Remapping Enabled Info
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+
+[2103]
+ParameterName=Enable Guarding Warning
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[2105]
+ParameterName=Internal Error Code
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=1
+
+[2110]
+ParameterName=Test Object 01
+ObjectType=0x9
+SubNumber=2
+
+[2110sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+PDOMapping=0
+
+[2110sub1]
+ParameterName=Test Object 011
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=500
+PDOMapping=0
+LowLimit=100
+HighLimit=1000
+
+[2180]
+ParameterName=CAN Restart Delay
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=1000
+PDOMapping=0
+
+[5002]
+ParameterName=Input Pull Up Enable
+ObjectType=0x8
+SubNumber=3
+
+[5002sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[5002sub1]
+ParameterName=Input Pull Up Enable 1
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0xFF
+PDOMapping=0
+
+[5002sub2]
+ParameterName=Input Pull Up Enable 2
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0xFF
+PDOMapping=0
+
+[5100]
+ParameterName=Analog Output PWM enable
+ObjectType=0x8
+SubNumber=3
+
+[5100sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[5100sub1]
+ParameterName=Analog Output PWM enable 1
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[5100sub2]
+ParameterName=Analog Output PWM enable 2
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[5101]
+ParameterName=Analog Output PWM use digital Control
+ObjectType=0x8
+SubNumber=3
+
+[5101sub0]
+ParameterName=NrOfObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[5101sub1]
+ParameterName=Analog Output PWM use digital Control 1
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[5101sub2]
+ParameterName=Analog Output PWM use digital Control 2
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[5200]
+ParameterName=Reset Digital Output Object on Error
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+
+[5400]
+ParameterName=Reset Analog Output Object on Error
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+
+[5402]
+ParameterName=Analog Out PWM Prescaler
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+LowLimit=1
+HighLimit=250

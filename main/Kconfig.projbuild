@@ -1,0 +1,28 @@
+menu "CO4017A0 CANopen mock"
+
+config CANOPEN_NODE_ID
+    int "CANopen node ID"
+    range 1 127
+    default 1
+
+config CANOPEN_BITRATE_KBPS
+    int "CAN bitrate (kbit/s)"
+    range 10 1000
+    default 250
+
+config CANOPEN_HEARTBEAT_MS
+    int "Producer heartbeat time (ms)"
+    range 0 65535
+    default 1000
+
+config CANOPEN_TX_GPIO
+    int "TWAI TX GPIO"
+    range 0 48
+    default 15
+
+config CANOPEN_RX_GPIO
+    int "TWAI RX GPIO"
+    range 0 48
+    default 16
+
+endmenu

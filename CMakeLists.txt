@@ -4,3 +4,6 @@ cmake_minimum_required(VERSION 3.22)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(esp32-s3-can-2ch)
+
+idf_component_get_property(canopennode_lib espressif__canopennode COMPONENT_LIB)
+target_include_directories(${canopennode_lib} PRIVATE ${CMAKE_SOURCE_DIR}/main)
