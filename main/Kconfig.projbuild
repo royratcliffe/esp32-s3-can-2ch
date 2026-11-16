@@ -15,6 +15,14 @@ config CANOPEN_HEARTBEAT_MS
     range 0 65535
     default 1000
 
+config CANOPEN_PDO_DEBUG
+    bool "Log PDO processing events"
+    depends on CO_PDO
+    default n
+    help
+        Log pending RPDOs and scheduled TPDOs from the CANopen task.
+        Logging may affect timing and can produce substantial output.
+
 config CANOPEN_TX_GPIO
     int "TWAI TX GPIO"
     range 0 48

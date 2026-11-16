@@ -24,6 +24,11 @@ simulator-only SDOs share the values exposed read-only at `0x6000` and `0x6401`.
 A changed value requests transmission of each event-driven TPDO mapping it,
 subject to the NMT state and TPDO inhibit time.
 
+For PDO diagnostics, enable **Log PDO processing events** under **CO4017A0
+CANopen mock** in `idf.py menuconfig`. The log reports RPDOs pending processing
+and TPDOs scheduled for transmission while operational; it does not confirm
+successful CAN transmission. Logging can affect timing.
+
 The Emergency producer records the most recent eight EMCY events in object
 `0x1003`. For testing, write `1` to SDO object `0x2F00:00` to send a simulated
 generic-error EMCY, and write `0` to clear it. This simulator-only object is

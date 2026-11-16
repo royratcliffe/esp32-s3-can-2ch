@@ -21,6 +21,35 @@
 
 static const char *TAG = "canopen";
 
+#ifdef CONFIG_CANOPEN_PDO_DEBUG
+static void log_pdo_events(CO_t *co, uint32_t elapsed_us)
+{
+    if (co->nodeIdUnconfigured || CO_NMT_getInternalState(co->NMT) != CO_NMT_OPERATIONAL) {
+        return;
+    }
+
+    for (size_t i = 0; i < OD_CNT_RPDO; i++) {
+        const CO_RPDO_t *rpdo = &co->RPDO[i];
+        if (rpdo->PDO_common.valid && CO_FLAG_READ(rpdo->CANrxNew[0])) {
+            ESP_LOGI(TAG, "RPDO%u pending: COB-ID 0x%03x, mapped length %u",
+                     (unsigned)i + 1, (unsigned)rpdo->PDO_common.configuredCanId,
+                     (unsigned)rpdo->PDO_common.dataLength);
+        }
+    }
+
+    for (size_t i = 0; i < OD_CNT_TPDO; i++) {
+        const CO_TPDO_t *tpdo = &co->TPDO[i];
+        const bool event_due = tpdo->eventTime_us != 0 && tpdo->eventTimer <= elapsed_us;
+        if (tpdo->PDO_common.valid && tpdo->transmissionType >= CO_PDO_TRANSM_TYPE_SYNC_EVENT_LO
+            && (tpdo->sendRequest || event_due) && tpdo->inhibitTimer <= elapsed_us) {
+            ESP_LOGI(TAG, "TPDO%u scheduled: COB-ID 0x%03x, mapped length %u%s",
+                     (unsigned)i + 1, (unsigned)tpdo->PDO_common.configuredCanId,
+                     (unsigned)tpdo->PDO_common.dataLength, event_due ? " (event timer)" : "");
+        }
+    }
+}
+#endif
+
 static ODR_t write_mock_input(OD_stream_t *stream, const void *buf, OD_size_t count,
                               OD_size_t *count_written)
 {
@@ -146,6 +175,9 @@ void app_main(void)
 
             reset = CO_process(co, false, elapsed_us, NULL);
 #ifdef CONFIG_CO_PDO
+#ifdef CONFIG_CANOPEN_PDO_DEBUG
+            log_pdo_events(co, elapsed_us);
+#endif
             CO_process_RPDO(co, false, elapsed_us, NULL);
             CO_process_TPDO(co, false, elapsed_us, NULL);
 #endif
