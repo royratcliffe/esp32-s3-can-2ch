@@ -49,3 +49,7 @@ Build and flash with ESP-IDF 5.5.4 or newer. In PowerShell:
 idf.py -B build "-DSDKCONFIG=$PWD\build\sdkconfig" build
 idf.py -B build "-DSDKCONFIG=$PWD\build\sdkconfig" flash monitor
 ```
+
+The BLE joystick requires Bluetooth with the NimBLE host. New configurations
+enable it by default; for an existing configuration, select **Bluetooth** >
+**NimBLE** in `idf.py menuconfig`.

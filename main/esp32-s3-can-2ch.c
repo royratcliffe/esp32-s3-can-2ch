@@ -10,9 +10,12 @@
 #include "esp_timer.h"
 #include "esp_twai.h"
 #include "esp_twai_onchip.h"
+#include "nvs_flash.h"
 #include "sdkconfig.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+
+#include "ble_joystick.h"
 
 #ifdef CONFIG_CANOPEN_RX_LOG
 #include "can_rx_log.h"
@@ -125,6 +128,16 @@ static const char *nmt_state_name(CO_NMT_internalState_t state)
 
 void app_main(void)
 {
+    esp_err_t err = nvs_flash_init();
+    if (err == ESP_ERR_NVS_NO_FREE_PAGES ||
+        err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        err = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(err);
+
+    ESP_ERROR_CHECK(ble_joystick_init());
+
     twai_node_handle_t twai_node;
     const twai_onchip_node_config_t twai_config = {
         .io_cfg.tx = CONFIG_CANOPEN_TX_GPIO,
@@ -207,6 +220,12 @@ void app_main(void)
             if (nmt_state != previous_nmt_state) {
                 ESP_LOGI(TAG, "NMT state: %s", nmt_state_name(nmt_state));
                 previous_nmt_state = nmt_state;
+            }
+
+            if (ble_joystick_connected()) {
+                int8_t x = OD_RAM.analog_outputs[0] >> 8, y = OD_RAM.analog_outputs[1] >> 8;
+                uint8_t buttons = OD_RAM.digital_outputs[0];
+                ble_joystick_report(x, y, buttons);
             }
 
             previous_time_us = current_time_us;
